@@ -75,6 +75,33 @@ https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json       
             be 1 + 9 + 7 + 3 = 20.                                     [Marks: 5]  ******/
 
 
+    const oddBtn = document.getElementById("odd-btn");
+
+    oddBtn.addEventListener('click', sumOfOdd);
+
+    function sumOfOdd () {
+        var n = document.getElementById("odd").value;
+        var numLength = n.length;
+        console.log(numLength);
+        if(numLength < 5 || numLength > 10) {
+            alert("Enter a number which has only 5-10 DIGITS !!!")
+            return false;
+        }
+        else {
+            let arr = Array.from(n);
+            console.log(arr);
+            let sum = 0;
+
+            for(var i=0; i < arr.length; i++) {
+                if(arr[i]%2 !== 0) {
+                    sum += parseInt(arr[i]);
+                }
+            }
+            document.getElementById("odd-text").innerHTML = `The sum of all the odd digits is: ${sum}`;
+
+        }
+    }
+
 
 /**** Q#4: Given an integer N, the task is to find the sum of interior angles of an N-sided 
             polygon.      	 	 	 	 	 	  [Marks: 5]  ****/ 
@@ -101,3 +128,47 @@ https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json       
 /*** Q#5: Create a age calculator that takes date of birth of user and shows age in years, 
 months and days.                                 [Marks: 5]  ***/ 
 
+
+var form = document.getElementById("form"),
+bdate = document.getElementById("date"),
+bmonth = document.getElementById("month"),
+byear = document.getElementById("year"),
+date = document.getElementById("date2"),
+month = document.getElementById("month2"),
+year = document.getElementById("year2"),
+age = document.getElementById("age"),
+days = document.getElementById("days"),
+mons = document.getElementById("months"),
+today = new Date();
+
+year.value = today.getFullYear();
+month.value = today.getMonth() + 1;
+date.value = today.getDate();
+
+form.addEventListener('submit', function(event) {
+event.preventDefault();
+
+var by = Number.parseFloat(byear.value),
+    bm = Number.parseFloat(bmonth.value),
+    bd = Number.parseFloat(bdate.value),
+    ty = Number.parseFloat(year.value),
+    tm = Number.parseFloat(month.value),
+    td = Number.parseFloat(date.value);
+
+if (td < bd) {
+    days.innerHTML = (td - bd + 30) + ' days';
+    tm = tm - 1;
+} else {
+    days.innerHTML = (td - bd) + ' days'
+}
+
+if (tm < bm) {
+    months.innerHTML = (tm - bm + 12) + ' months';
+    ty = ty - 1;
+} else {
+    months.innerHTML = (tm - bm) + ' months'
+}
+
+age.innerHTML = "Age: " + (ty - by) + ' years';
+
+});

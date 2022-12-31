@@ -35,7 +35,15 @@ https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json       
         <h4>Q#3: Write a program that takes a number of greater than 5 digits from input field and shows sum of all odd numbers. For example, if the input is 196783, the sum would 
             be 1 + 9 + 7 + 3 = 20.                                                                                       [Marks: 5]  
              </h4>
-<div id="box4" style="overflow: auto; height: 100px; width: 800px; white-space: pre; border: 1px solid black;"></div>
+
+        <label for="odd">Enter a 5-10 digit number: </label>
+        <input type="number" id="odd">
+        <div>
+            <label for="odd-btn">Press the button to calculate the sum of odd digits in your number </label>
+            <button id="odd-btn">Calculate</button>
+        </div>
+       <p id="odd-text"></p>
+
     </div>
 
     <div class="sec3-ques">
@@ -53,9 +61,35 @@ https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json       
     <div class="sec3-ques">
         <h4>Q#5: Create a age calculator that takes date of birth of user and shows age in years, 
 months and days.                                            [Marks: 5] 
-
              </h4>
 
+             <div id="container">        
+                <form id="form" autocomplete="off">
+                    <h5>Calculate your date of birth here</h5>
+                    <label for="date">
+                        Enter Date Of Birth:
+                        <input type="text" maxlength="2" size="2" id="date" placeholder="Date" required/>
+                        <input type="text" maxlength="2" size="2" id="month" placeholder="Month" autocomplete="on" required/>
+                        <input type="text" maxlength="4" size="4" id="year" placeholder="Year" required/>
+                    </label>
+                    <br />
+                    <br />
+                    <label for="date2">
+                         Check Today's Date:
+                        <input type="text" maxlength="2" size="2" id="date2" placeholder="Date"/>
+                        <input type="text" maxlength="2" size="2" id="month2" placeholder="Month"/>
+                        <input type="text" maxlength="4" size="4" id="year2" placeholder="Year"/>
+                    </label>
+                    <br />
+                    <br />
+                    <button id="calbtn">Calculate Age</button>
+                    <br />
+                    <br />
+                    <span id="age"></span>    
+                    <span id="months"></span>    
+                    <span id="days"></span>
+                </form>
+                </div>
     </div>
 
     
